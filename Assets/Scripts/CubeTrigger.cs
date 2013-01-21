@@ -4,6 +4,7 @@ using System.Collections;
 public class CubeTrigger : MonoBehaviour {
 
     int StayCounter = 0;
+    public bool destroyCollisionStay = false;
     void OnTriggerEnter(Collider other)
     {
         Logger.Log("Enter");
@@ -17,9 +18,13 @@ public class CubeTrigger : MonoBehaviour {
     void OnTriggerStay(Collider other)
     {
         Logger.Log("Stay");
-        StayCounter++;
 
-        if (StayCounter == 10)
-            Destroy(gameObject);
+        if (destroyCollisionStay)
+        {
+            StayCounter++;
+
+            if (StayCounter == 10)
+                Destroy(gameObject);
+        }
     }
 }

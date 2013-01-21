@@ -33,7 +33,6 @@ public class Logger : MonoBehaviour {
 
     static public void Log(string log)
     {
-        Debug.Log(Time.time);
         loggingData.Add( new LoggingData() { logMessage = log, loggingTime = Time.time });
         Logger logger = (Logger)GameObject.FindObjectOfType(typeof(Logger));
         if (logger == null)
